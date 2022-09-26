@@ -1,12 +1,16 @@
+noseX = 0;
+noseY = 0;
 function preload()
-{ }
+{
+    mustacheimg = loadImage('https://i.postimg.cc/3x3QzSGq/m.png');
+}
 
 function setup()
 {
-    canvas = createCanvas(350,350);
+    canvas = createCanvas(400,350);
     canvas.center();
     video = createCapture(VIDEO);
-    video.size(300 , 300);
+    video.size(400 , 400);
     video.hide();
 
     poseNet = ml5.poseNet(video, modelLoaded);
@@ -30,7 +34,11 @@ function gotPoses()
 }
 
 function draw()
-{}
+{
+    image(video, 0, 0, 400, 400);
+    image( mustacheimg,185, 130, 50, 50);
+}
+
 function take_snapshot()
 {
     save('Myfilteredimg.png');
